@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
 from .models import Profile
-from .forms import ProfileForm
 
 
 def get_profile(request):
@@ -29,9 +28,20 @@ def update_my_profile(request):
     if request.user.is_authenticated:
         user_name = request.user.username
         print('ok')
-        form = ProfileForm(request.POST or None)
-        if request.method == 'POST' and form.is_valid():
-        	form.save()
+        user_check = Profile.objects.filter(user__username=user_name)
+        print(user_check)
+        if not user_check:
+            user = Profile.objects.create(user=request.user)
+
+        if request.method == 'POST':
+            user_age = request.POST.get('user_age')
+            user_sex = request.POST.get('user_sex')
+            purpose_of_dating = request.POST.get('purpose_of_dating')
+            user_smook = request.POST.get('user_smook')
+            user_alcogol = request.POST.get('user_alcogol')
+            user = Profile.objects.filter(user=request.user).update(user_age=user_age,
+                                user_sex=user_sex, purpose_of_dating=purpose_of_dating,
+                                user_smook=user_smook, user_alcogol=user_alcogol)
     else:
         print('read again')
     return render(request, 'update_profile.html', locals())

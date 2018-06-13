@@ -20,23 +20,16 @@
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-12">
-                                        
-                                        <div class="input-group mb-3">
-                                          <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">username</span>
-                                          </div>
-                                          <input type="text" class="form-control" name="username" placeholder="nickName" aria-label="Username" aria-describedby="basic-addon1">
-                                        </div>
 
 
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <label for="sex" class="input-group-text">Ваш пол:</label>
                                             </div>
-                                            <select name="my_sex" name="{{ form.user_sex.name }" class="custom-select" id="inputGroupSelect01">
-                                                <option value="secret">Не скажу</option>
-                                                <option value="male">Чоловічий</option>
-                                                <option value="female">жіночий</option>
+                                            <select name="user_sex" class="custom-select" id="inputGroupSelect01">
+                                                <option value="Не скажу">Не скажу</option>
+                                                <option value="Чоловічий">Чоловічий</option>
+                                                <option value="Жіночий">Жіночий</option>
                                             </select>
                                         </div>
 
@@ -44,19 +37,19 @@
                                           <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Вiк</span>
                                           </div>
-                                          <input type="number" min=6 max=10 class="form-control" name="{{ form.user_age.name }}" placeholder="16" aria-label="Username" aria-describedby="basic-addon1">
+                                          <input type="number" min=6 max=100 class="form-control" name="user_age" placeholder="16" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
 
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <label for="age" class="input-group-text">Мета знайомства: </label>
                                             </div>
-                                            <select id="purpose_of_dating" name="{{ form.purpose_of_dating.name }}" class="custom-select" id="inputGroupSelect03">
-                                                <option value="speak">Спілкування</option>
-                                                <option value="friendship">Знайти Дружбу</option>
-                                                <option value="relations">Знайти Відносини</option>
-                                                <option value="love_meet">Піти Побачення</option>
-                                                <option value="go_for_a_walk">Сходити на прогулянку</option>
+                                            <select id="purpose_of_dating" name="purpose_of_dating" class="custom-select" id="inputGroupSelect03">
+                                                <option value="Спілкування">Спілкування</option>
+                                                <option value="Знайти Дружбу">Знайти Дружбу</option>
+                                                <option value="Знайти Відносини">Знайти Відносини</option>
+                                                <option value="Піти Побачення">Піти Побачення</option>
+                                                <option value="Сходити на прогулянку">Сходити на прогулянку</option>
                                             </select>
                                         </div>
 
@@ -64,10 +57,10 @@
                                             <div class="input-group-prepend">
                                                 <label for="smooking" class="input-group-text">Куріння: </label>
                                             </div>
-                                            <select name="{{ form.user_smook.name }}" id="smooking" name="smooking" class="custom-select" id="inputGroupSelect04">
-                                                <option value="not_smook">Не курю</option>
-                                                <option value="sometime">Iноді</option>
-                                                <option value="in_group">В компанії</option>
+                                            <select name="user_smook" id="smooking" name="smooking" class="custom-select" id="inputGroupSelect04">
+                                                <option value="Не курю">Не курю</option>
+                                                <option value="Iноді">Iноді</option>
+                                                <option value="В компанії">В компанії</option>
                                             </select>
                                         </div>
 
@@ -75,10 +68,10 @@
                                             <div class="input-group-prepend">
                                                 <label for="alcogol" class="input-group-text">Алкоголь: </label>
                                             </div>
-                                            <select name="{{ form.user_alcogol.name }}" id="alcogol" name="purpose_of_dating" class="custom-select" id="inputGroupSelect05">
-                                                <option value="not_smook">Не п'ю</option>
-                                                <option value="sometime">Iноді</option>
-                                                <option value="in_group">В компанії</option>
+                                            <select name="user_alcogol" id="alcogol" name="purpose_of_dating" class="custom-select" id="inputGroupSelect05">
+                                                <option value="Не п'ю">Не п'ю</option>
+                                                <option value="Iноді">Iноді</option>
+                                                <option value="В компанії">В компанії</option>
                                             </select>
                                         </div>
 
