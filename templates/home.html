@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+{% endblock %}
+
+{% block page_title %}
+   <title>Головна</title>
+{% endblock %}
+
+{% block content %}
+<div class="row base_element">
+                <div class="col-md">
+                    {% if user is None %}
+                        <h3>Введіть коректні дані</h3>
+                    {% endif %}
+                        
+                </div>
+
+                <div class="col-md line_separete">
+                    <div class="col-md-12 title_card title_card_left">Увійти під своїм username</div>
+                    <form action="" method="post" class="form_begin">
+                        {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">username</span>
+                                </div>
+                                <input type="text" class="form-control" name="user_name" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">password</span>
+                                </div>
+                                <input type="password" class="form-control" name="user_password" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                            </div>
+                            <div class="col-md text-center">
+                                <input type="submit" class="btn btn-dark btn-sm" value="Войти">
+                                <a class="btn btn-primary btn-sm" href="/registration/" role="button">Реєстрація</a>
+                            </div>
+                        </form>
+                </div>
+            </div>
+{% endblock content %}

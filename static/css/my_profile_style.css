@@ -1,0 +1,15 @@
+.list_menu_user {
+    text-align: right;
+    width: 95%;
+    margin: 10px;
+    list-style: none;
+}
+
+.list_menu_user a {
+	font-weight: 600;
+    font-size: 0.9em;
+    padding: 25px;
+    text-decoration: none;
+    color: #228484;
+    font-style: italic;
+}

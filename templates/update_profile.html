@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Редагування профiля</title>
+{% endblock %}
+
+{% block content %}
+            <div class="row base_element">
+                <div class="col-md">
+                    <div class="col-md-12 title_card">Редагування профiля</div>
+                    <div class="container">
+                        <div class="row">
+                            <form action="" method="post" class="form_begin">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">username</span>
+                                          </div>
+                                          <input type="text" class="form-control" name="username" placeholder="nickName" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="sex" class="input-group-text">Ваш пол:</label>
+                                            </div>
+                                            <select name="my_sex" name="{{ form.user_sex.name }" class="custom-select" id="inputGroupSelect01">
+                                                <option value="secret">Не скажу</option>
+                                                <option value="male">Чоловічий</option>
+                                                <option value="female">жіночий</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Вiк</span>
+                                          </div>
+                                          <input type="number" min=6 max=10 class="form-control" name="{{ form.user_age.name }}" placeholder="16" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="age" class="input-group-text">Мета знайомства: </label>
+                                            </div>
+                                            <select id="purpose_of_dating" name="{{ form.purpose_of_dating.name }}" class="custom-select" id="inputGroupSelect03">
+                                                <option value="speak">Спілкування</option>
+                                                <option value="friendship">Знайти Дружбу</option>
+                                                <option value="relations">Знайти Відносини</option>
+                                                <option value="love_meet">Піти Побачення</option>
+                                                <option value="go_for_a_walk">Сходити на прогулянку</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="smooking" class="input-group-text">Куріння: </label>
+                                            </div>
+                                            <select name="{{ form.user_smook.name }}" id="smooking" name="smooking" class="custom-select" id="inputGroupSelect04">
+                                                <option value="not_smook">Не курю</option>
+                                                <option value="sometime">Iноді</option>
+                                                <option value="in_group">В компанії</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <label for="alcogol" class="input-group-text">Алкоголь: </label>
+                                            </div>
+                                            <select name="{{ form.user_alcogol.name }}" id="alcogol" name="purpose_of_dating" class="custom-select" id="inputGroupSelect05">
+                                                <option value="not_smook">Не п'ю</option>
+                                                <option value="sometime">Iноді</option>
+                                                <option value="in_group">В компанії</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md text-center">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="Зберегти дані">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                                    
+                </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
+{% endblock content %}

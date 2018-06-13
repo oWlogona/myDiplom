@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Моя сторiнка</title>
+{% endblock %}
+
+{% block content %}
+ <div class="row base_element">
+                <div class="col-md">
+        
+                </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
+{% endblock content %}

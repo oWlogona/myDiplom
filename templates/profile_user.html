@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/profile_user_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Мої дані</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row base_element">
+                <div class="col-md">
+                    
+                    <div class="col-md-12 title_card">Мої дані</div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    {% if not user_check%}
+                                        <h3>Ще не заповнені дані</h3>
+                                        <a class="btn btn-primary btn-sm" href="/update_my_profile/" role="button">Заповнити дані</a>
+                                    {% else %}
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <span class="profile_image">Ч</span>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <table class="list_user_data">
+                                                    <tr>
+                                                        <td class="title_data">userName</td>
+                                                        <td class="data_inform">{{ user.user.username }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title_data">Вік</td>
+                                                        <td class="data_inform">{{ user.email_address }}рокiв</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title_data">Стать</td>
+                                                        <td class="data_inform">{{ user.user_sex }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title_data">Мета знайомства</td>
+                                                        <td class="data_inform">{{ user.purpose_of_dating }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title_data">Куріння</td>
+                                                        <td class="data_inform">{{ user.user_smook }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title_data">Алкоголь</td>
+                                                        <td class="data_inform">{{ user.user_alcogol }}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-md-12">
+                                    
+                                        <div class="col-md-12 my_news">
+                                            <div class="col-md-12">
+                                                <div class="time_news">12.03.18</div>
+                                            </div>
+                                            <div class="text_news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sapiente nobis numquam nostrum hic, temporibus molestias ut.</div>
+                                        </div>
+                                        
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
+            </div>
+{% endblock content %}

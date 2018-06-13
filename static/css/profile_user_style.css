@@ -1,0 +1,38 @@
+.profile_image {
+	width: 100px;
+    height: 100px;
+    background-color: #4c3232;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #cbdaca;
+}
+.list_user_data {
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding: 10px 15px;
+	background-color: #fff;
+	margin: 10px;
+	width: 90%;
+}
+
+.list_user_data tr {
+	border: 2px solid #484835;
+}
+
+.list_user_data .title_data {
+	width: 50%;
+	letter-spacing: 0.5em;
+    font-weight: bold;
+    padding: 5px 7px;
+    background-color: #4c3e43;
+    color: #fff;
+    font-size: 11px;
+}
+
+.list_user_data  .data_inform {
+	width: 50%;
+	text-align: center;
+}

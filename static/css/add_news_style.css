@@ -1,0 +1,14 @@
+.form_for_news {
+	margin: 10px;
+}
+.form_for_news .text_news {
+    width: 210px;
+    height: 55px;
+    font-size: 12px;
+}
+.btn_news {
+	border: none;
+    width: 90px;
+    height: 55px;
+    vertical-align: top;
+}
