@@ -1,22 +1,41 @@
+{% extends 'base.html' %}
 
-        <link rel="stylesheet" href="search_people_style.css">
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/profile_user_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_people_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Пошук співрозмовника</title>
+{% endblock %}
+
+{% block content %}
+
             <div class="row base_element">
                 <div class="col-md">
                     <div class="col-md-12 title_card">Пошук співрозмовника</div>
                     <div class="container">
                         <div class="row">
-
+                            {% for item_user in group_users %}
                             <div class="col-md-4">
                                 <div class="user_card">
                                     <div class="col-md-12">
-                                        <span class="img_user">Ч</span>
+                                        <span class="img_user">{{ item_user.user }}</span>
                                     </div>
+                                    <hr>
                                     <div class="col-md-12">
-                                        <span class="goal_user">Секс</span>
+                                        <span class="goal_user">{{ item_user.user_sex }} <b>хочу</b> 
+                                            <span class="goal_user">{{ item_user.purpose_of_dating }}</span>
+                                        </span> 
                                     </div>
-                                    <a class="btn btn-primary btn-sm" href="#" role="button">Відвідати</a>
+                                    <hr>
+                                    <a class="btn btn-primary btn-sm" href="/profile_user/{{ item_user.user }}" role="button">Відвідати</a>
                                 </div>
                             </div>
+                            {% endfor %}
                             
                         </div>
                     </div>
@@ -27,3 +46,4 @@
                     {% include 'my_user.html' %}
                 </div>
             </div>
+{% endblock content %}

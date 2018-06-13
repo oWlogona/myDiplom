@@ -1,22 +1,39 @@
+{% extends 'base.html' %}
 
-        <link rel="stylesheet" href="my_news_style.css">
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_news_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Мої новини</title>
+{% endblock %}
+
+{% block content %}
 
 <div class="row base_element">
                 <div class="col-md">
-                    
+
                     <div class="col-md-12 title_card">Мої новини</div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="row">
+                                        {% if not news_model %}
+                                            <h3>Ще не опубліковані новини</h3>
+                                        {% else %}
+                                            {% for item_news in news_model %}
+                                                <div class="col-md-12 my_news">
+                                                    <div class="col-md-12">
+                                                        <div class="time_news">{{ item_news.created }}</div>
+                                                    </div>
+                                                    <div class="text_news">{{ item_news.text_news }}</div>
+                                                </div>
+                                            {% endfor %}
 
-                                        <div class="col-md-12 my_news">
-                                            <div class="col-md-12">
-                                                <div class="time_news">12.03.18</div>
-                                            </div>
-                                            <div class="text_news">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sapiente nobis numquam nostrum hic, temporibus molestias ut.</div>
-                                        </div>
-
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="col-md-12"></div>
@@ -29,3 +46,4 @@
                     {% include 'my_user.html' %}
                 </div>
             </div>
+{% endblock content %}

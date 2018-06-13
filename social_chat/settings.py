@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'landing',
     'my_profile',
+    'tidings',
+    'other_speeaker',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

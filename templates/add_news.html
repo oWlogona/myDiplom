@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_news_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_news_style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Додати новину</title>
+{% endblock %}
+
+{% block content %}
+        
+            <div class="row base_element">
+                <div class="col-md">
+                    <div class="col-md-12 title_card">Додати новину</div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <form action="" method="post" class='form_for_news'>
+                                                    {% csrf_token %}
+                                                    <textarea name="text_news" class="text_news" placeholder="Введiть новину"></textarea>
+                                                    <input type="submit" class="btn_news" value="SEND">
+                                                </form>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                {% if not news_model %}
+                                                    <h3>Ще не опубліковані новини</h3>
+                                                {% else %}
+                                                    {% for item_news in news_model %}
+                                                        <div class="col-md-12 my_news">
+                                                            <div class="col-md-12">
+                                                                <div class="time_news">{{ item_news.created }}</div>
+                                                            </div>
+                                                            <div class="text_news">{{ item_news.text_news }}</div>
+                                                        </div>
+                                                    {% endfor %}
+
+                                                {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12"></div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
+{% endblock content %}

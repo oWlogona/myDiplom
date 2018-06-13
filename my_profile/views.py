@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
 from .models import Profile
-
+from tidings.models import NewsModel
 
 def get_profile(request):
     if request.user.is_authenticated:
@@ -17,6 +17,7 @@ def show_my_profile(request):
         user_name = request.user.username
         user_check = Profile.objects.filter(user__username=user_name)
         print(user_check)
+        news_model = NewsModel.objects.filter(user__username=user_name)
         if user_check:
             user = Profile.objects.get(user=request.user)
         else:
@@ -29,7 +30,6 @@ def update_my_profile(request):
         user_name = request.user.username
         print('ok')
         user_check = Profile.objects.filter(user__username=user_name)
-        print(user_check)
         if not user_check:
             user = Profile.objects.create(user=request.user)
 

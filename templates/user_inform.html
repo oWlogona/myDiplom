@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block page_title %}
-   <title>Мої дані</title>
+   <title>Дані</title>
 {% endblock %}
 
 {% block content %}
@@ -17,14 +17,10 @@
 <div class="row base_element">
                 <div class="col-md">
                     
-                    <div class="col-md-12 title_card">Мої дані</div>
+                    <div class="col-md-12 title_card">Дані</div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8">
-                                    {% if not user_check%}
-                                        <h3>Ще не заповнені дані</h3>
-                                        <a class="btn btn-primary btn-sm" href="/update_my_profile/" role="button">Заповнити дані</a>
-                                    {% else %}
                                         <div class="row">
                                                 <div class="col-md-4">
                                                     <span class="profile_image">Ч</span>
@@ -33,27 +29,27 @@
                                                 <table class="list_user_data">
                                                     <tr>
                                                         <td class="title_data">userName</td>
-                                                        <td class="data_inform">{{ user.user.username }}</td>
+                                                        <td class="data_inform">{{ user_detail.user.username }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="title_data">Вік</td>
-                                                        <td class="data_inform">{{ user.email_address }}рокiв</td>
+                                                        <td class="data_inform">{{ user_detail.email_address }}рокiв</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="title_data">Стать</td>
-                                                        <td class="data_inform">{{ user.user_sex }}</td>
+                                                        <td class="data_inform">{{ user_detail.user_sex }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="title_data">Мета знайомства</td>
-                                                        <td class="data_inform">{{ user.purpose_of_dating }}</td>
+                                                        <td class="data_inform">{{ user_detail.purpose_of_dating }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="title_data">Куріння</td>
-                                                        <td class="data_inform">{{ user.user_smook }}</td>
+                                                        <td class="data_inform">{{ user_detail.user_smook }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="title_data">Алкоголь</td>
-                                                        <td class="data_inform">{{ user.user_alcogol }}</td>
+                                                        <td class="data_inform">{{ user_detail.user_alcogol }}</td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -75,7 +71,6 @@
 
                                         {% endif %}
                                         
-                                    {% endif %}
                                 </div>
                             </div>
                         </div>

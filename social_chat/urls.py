@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls')),
     path('', include('my_profile.urls')),
+    path('', include('tidings.urls')),
+    path('', include('other_speeaker.urls')),
 ]
