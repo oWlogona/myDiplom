@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('my_profile.urls')),
     path('', include('tidings.urls')),
     path('', include('other_speeaker.urls')),
+    path('', include('send_message.urls')),
 ]

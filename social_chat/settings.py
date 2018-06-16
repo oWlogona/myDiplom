@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'my_profile',
     'tidings',
     'other_speeaker',
+    'send_message',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'social_chat.wsgi.application'
 
-
+LOGIN_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 

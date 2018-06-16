@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/my_profile_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_for_field_chat.css' %}">
+{% endblock %}
+
+{% block page_title %}
+   <title>Моя сторiнка</title>
+{% endblock %}
+
+{% block content %}
+ <div class="row base_element">
+                <div class="col-md">
+                    <div class="col-md-12 title_card">Анонимное общение</div>
+                    <div class="field_massege" 
+                        style="margin: 5px -10px;
+                        padding: 5px;
+                        border: 1px solid gray;
+                        height: 350px;
+                        max-height: 600px;
+                        overflow-y: scroll;">
+                        <div class="testovoch"></div>
+                        <ul class="list_massage">
+                            <li class="message_element iam">
+                                <span class="chat_user_name">Owlog:</span>
+                                <span class="user_message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis similique, architecto perspiciatis. Incidunt consequatur nobis vitae laborum!</span>
+                            </li>
+                            <li class="message_element anm">
+                                <span class="chat_user_name">Pupiter:</span>
+                                <span class="user_message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis similique, architecto perspiciatis. Incidunt consequatur nobis vitae laborum!</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <form action="" method="post" id="chat_forms">
+                            {% csrf_token %}
+                            <input type="text" name="userID{{ user_1_id }}_dialogID{{ dialog_id }}" value="{{ dialog_id }}" class='hidden_input' hidden>
+                            <input type="text" class="field_enter" name='message_'>
+                            <input type="submit" class="btn btn_sent_message" name="submit" value="SEND">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md line_separete">
+                    {% include 'my_user.html' %}
+                </div>
+            </div>
+{% endblock content %}

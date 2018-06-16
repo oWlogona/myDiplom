@@ -3,7 +3,9 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import logout
 from .models import Profile
 from tidings.models import NewsModel
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def get_profile(request):
     if request.user.is_authenticated:
         user_name = request.user.username
@@ -49,5 +51,5 @@ def update_my_profile(request):
 
 def logout_profile(request):
     logout(request)
-    url = '/login_user/'
+    url = '/'
     return HttpResponseRedirect(url)

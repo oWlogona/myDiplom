@@ -27,7 +27,7 @@ def registration(request):
         user = User.objects.create_user(
             username, 'no_name@gmail.com', user_password)
         user.save()
-        url = '/login_user/'
+        url = '/'
         return HttpResponseRedirect(url)
 
     return render(request, 'registration.html', locals())
