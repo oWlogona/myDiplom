@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from my_profile.models import Profile
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def search_interlocutor(request):
     if request.user.is_authenticated:
         user_name = request.user
@@ -10,6 +12,8 @@ def search_interlocutor(request):
         print('read again')
     return render(request, 'search_people.html', locals())
 
+
+@login_required
 def profile_user(request, name_user):
     if request.user.is_authenticated:
         user_name = request.user

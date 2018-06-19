@@ -13,7 +13,7 @@ def get_profile(request):
         print('read again')
     return render(request, 'my_profile.html', locals())
 
-
+@login_required
 def show_my_profile(request):
     if request.user.is_authenticated:
         user_name = request.user.username
@@ -26,7 +26,7 @@ def show_my_profile(request):
             print('not')
     return render(request, 'profile_user.html', locals())
 
-
+@login_required
 def update_my_profile(request):
     if request.user.is_authenticated:
         user_name = request.user.username
