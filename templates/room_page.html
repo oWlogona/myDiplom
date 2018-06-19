@@ -24,25 +24,30 @@
                         overflow-y: scroll;">
                         <div class="testovoch"></div>
                         <ul class="list_massage">
-                            <li class="message_element iam">
-                                <span class="chat_user_name">Artem:</span>
-                                <span class="user_message">Доброго дня, юний друже. Я радий вас тут бачити</span>
-                            </li>
-                            <li class="message_element anm">
-                                <span class="chat_user_name">Popov:</span>
-                                <span class="user_message">Доброго и вам дня. Дякую, також радий</span>
-                            </li>
-                            <li class="message_element anm">
-                                <span class="chat_user_name">Popov:</span>
-                                <span class="user_message">Як ваш собака пожива ?</span>
-                            </li>
+                        {% if not messages %}
+                            <p>Поки нема {{ dialog_id }}</p>
+                        {% else %}
+
+                            {% for item_message in messages %}
+                                {% if item_message.sender == request.user %}
+                                    <li class="message_element iam">
+                                        <span class="chat_user_name">{{ item_message.sender }}</span>
+                                        <span class="user_message">{{ item_message.text_message }}</span>
+                                    </li>
+                                {% else %}
+                                    <li class="message_element anm">
+                                        <span class="chat_user_name">{{ item_message.dialog.user_2 }}</span>
+                                        <span class="user_message">{{ item_message.text_message }}</span>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="row">
                         <form action="" method="post" id="chat_forms">
                             {% csrf_token %}
-                            <input type="text" name="userID{{ user_1_id }}_dialogID{{ dialog_id }}" value="{{ dialog_id }}" class='hidden_input' hidden>
-                            <input type="text" class="field_enter" name='message_'>
+                            <input type="text" class="field_enter" name='message'>
                             <input type="submit" class="btn btn_sent_message" name="submit" value="SEND">
                         </form>
                     </div>
